@@ -19,7 +19,7 @@ In this project we have **three queries** to answer. So, we will create three di
 
 **1st Song plays by session**
 
-> Query: Give me the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
+> Give me the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
 
 Required fields: artist, song, length, sessionid, itemInSession
 
@@ -29,7 +29,7 @@ Primary Key: `sessionId` is not sufficient for a PK, because it is not unique. H
 
 **2nd Song plays by User's session**
 
-> Query: Give me only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
+> Give me only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
 
 Required fields: artist, song, itemInSession, firstName, lastName, userId, sessionId
 
@@ -39,7 +39,7 @@ Primary Key: In this table `userId` would not be unique, and adding `sessionId` 
 
 **3rd  Users by Song listens**
 
-> Query: Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own'
+> Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own'
 
 Required fields: firstName, lastName, song, userId
 
