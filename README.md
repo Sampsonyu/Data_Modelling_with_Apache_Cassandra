@@ -17,12 +17,7 @@ As we are using Apache Cassandra as our database, we need to think about our que
 In this project we have **three queries** to answer. So, we will create three different tables with appropriate primary key, partition keys and clustering columns.
 
 
-
-![Final Data](images/image_event_datafile_new.jpg)
-
-
-
-1st **Song plays by session**
+**1st Song plays by session**
 
 Query:
 > Give me the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
@@ -33,7 +28,7 @@ Partition Key: should be `sessionId`, because this is the primary way our data i
 
 Primary Key: `sessionId` is not sufficient for a PK, because it is not unique. However, adding `itemInSession` as a clustering column with give us uniqueness.
 
-2nd **Song plays by User's session**
+**2nd Song plays by User's session**
 
 Query:
 > Give me only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
@@ -44,7 +39,7 @@ Partition Key: should be `userId` in this case, because this is the primary way 
 
 Primary Key: In this table `userId` would not be unique, and adding `sessionId` would still not guarantee uniqueness. However, the query also asks for sorting by `itemInSession`, which means we need it as a clustering column anyway. So a PK that is both unique and sorts the way we would like is `(userId, sessionId, itemInSession)`.
 
-3rd **Users by Song listens**
+**3rd  Users by Song listens**
 
 Query:
 > Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own'
